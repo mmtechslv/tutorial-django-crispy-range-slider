@@ -1,0 +1,19 @@
+<table border='1' style="width:100%; text-align:center">
+  <thead>
+    <tr>
+      <th> Name </th>
+      <th> Surname </th>
+      <th> Age </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {% for person in all_people %}
+    <tr>
+      <td> {{ person.name }} </td>
+      <td> {{ person.surname }} </td>
+      <td> {{ person.age }} </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>

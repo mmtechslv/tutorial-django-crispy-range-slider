@@ -1,0 +1,36 @@
+{% load static %}
+{% load crispy_forms_tags %}
+
+<head>
+  <link rel="stylesheet" href="{% static 'custom_slider.css' %}">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+
+<body>
+  {% crispy people_filter.form %}
+
+  <table border='1' style="width:100%; text-align:center">
+    <thead>
+      <tr>
+        <th> Name </th>
+        <th> Surname </th>
+        <th> Age </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for person in people_filter.qs %}
+      <tr>
+        <td> {{ person.name }} </td>
+        <td> {{ person.surname }} </td>
+        <td> {{ person.age }} </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <script src="{% static 'custom_slider.js' %}"></script>
+</body>
